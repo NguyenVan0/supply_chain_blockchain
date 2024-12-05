@@ -26,10 +26,11 @@ function Supply() {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
       window.alert(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+        "Trình duyệt không hỗ trợ Ethereum. Bạn nên thử sử dụng MetaMask!"
       );
     }
   };
+
   const loadBlockchaindata = async () => {
     setloader(true);
     const web3 = window.web3;
@@ -56,27 +57,28 @@ function Supply() {
       setMedStage(medStage);
       setloader(false);
     } else {
-      window.alert("The smart contract is not deployed to current network");
+      window.alert("Hợp đồng thông minh không được triển khai trên mạng hiện tại");
     }
   };
+
   if (loader) {
     return (
       <div>
-
-      
-      <div className="h-screen flex flex-col justify-center items-center mt-[11vh]">
-        <img src={preLoader} alt="pre-loader" />
-      </div>
-
+        <div className="h-screen flex flex-col justify-center items-center mt-[11vh]">
+          <img src={preLoader} alt="pre-loader" />
+        </div>
       </div>
     );
   }
+
   const redirect_to_home = () => {
     navigate("/");
   };
+
   const handlerChangeID = (event) => {
     setID(event.target.value);
   };
+
   const handlerSubmitRMSsupply = async (event) => {
     event.preventDefault();
     try {
@@ -87,9 +89,10 @@ function Supply() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!!");
     }
   };
+
   const handlerSubmitManufacturing = async (event) => {
     event.preventDefault();
     try {
@@ -100,9 +103,10 @@ function Supply() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!!");
     }
   };
+
   const handlerSubmitDistribute = async (event) => {
     event.preventDefault();
     try {
@@ -113,9 +117,10 @@ function Supply() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!!");
     }
   };
+
   const handlerSubmitRetail = async (event) => {
     event.preventDefault();
     try {
@@ -126,9 +131,10 @@ function Supply() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!!");
     }
   };
+
   const handlerSubmitSold = async (event) => {
     event.preventDefault();
     try {
@@ -139,35 +145,36 @@ function Supply() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!!");
     }
   };
+
   return (
-    <div className="mt-[11vh]">
+    <div className="mt-[11vh]" style={{padding: '20px'}}>
       <span>
-        <b>Current Account Address:</b> {currentaccount}
+        <b>Địa chỉ tài khoản hiện tại:</b> {currentaccount}
       </span>
       <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
       >
         {" "}
-        HOME
+        TRANG CHỦ
       </span>
       <h6>
-        <b>Supply Chain Flow:</b>
+        <b>Chuỗi cung ứng:</b>
       </h6>
       <p>
-        Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt;
-        Distributor -&gt; Retailer -&gt; Consumer
+        Đặt hàng thuốc -&gt; Nhà cung cấp nguyên liệu -&gt; Nhà sản xuất -&gt;
+        Nhà phân phối -&gt; Nhà bán lẻ -&gt; Người tiêu dùng
       </p>
       <table className="table table-sm table-dark">
         <thead>
           <tr>
-            <th scope="col">Medicine ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Current Processing Stage</th>
+            <th scope="col">Mã thuốc</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col">Giai đoạn xử lý hiện tại</th>
           </tr>
         </thead>
         <tbody>
@@ -183,110 +190,105 @@ function Supply() {
           })}
         </tbody>
       </table>
+
       <h5>
-        <b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material
-        Supplier can perform this step):-
+        <b>Bước 1: Cung cấp nguyên liệu thô</b>(Chỉ có Nhà cung cấp nguyên liệu đã đăng ký mới có thể thực hiện bước này):
       </h5>
       <form onSubmit={handlerSubmitRMSsupply}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
+          placeholder="Nhập mã thuốc"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitRMSsupply}
         >
-          Supply
+          Cung cấp
         </button>
       </form>
       <hr />
       <br />
       <h5>
-        <b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform
-        this step):-
+        <b>Bước 2: Sản xuất</b>(Chỉ có Nhà sản xuất đã đăng ký mới có thể thực hiện bước này):
       </h5>
       <form onSubmit={handlerSubmitManufacturing}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
+          placeholder="Nhập mã thuốc"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitManufacturing}
         >
-          Manufacture
+          Sản xuất
         </button>
       </form>
       <hr />
       <br />
       <h5>
-        <b>Step 3: Distribute</b>(Only a registered Distributor can perform this
-        step):-
+        <b>Bước 3: Phân phối</b>(Chỉ có Nhà phân phối đã đăng ký mới có thể thực hiện bước này):
       </h5>
       <form onSubmit={handlerSubmitDistribute}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
+          placeholder="Nhập mã thuốc"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitDistribute}
         >
-          Distribute
+          Phân phối
         </button>
       </form>
       <hr />
       <br />
       <h5>
-        <b>Step 4: Retail</b>(Only a registered Retailer can perform this
-        step):-
+        <b>Bước 4: Bán lẻ</b>(Chỉ có Nhà bán lẻ đã đăng ký mới có thể thực hiện bước này):
       </h5>
       <form onSubmit={handlerSubmitRetail}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
+          placeholder="Nhập mã thuốc"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitRetail}
         >
-          Retail
+          Bán lẻ
         </button>
       </form>
       <hr />
       <br />
       <h5>
-        <b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this
-        step):-
+        <b>Bước 5: Đánh dấu đã bán</b>(Chỉ có Nhà bán lẻ đã đăng ký mới có thể thực hiện bước này):
       </h5>
       <form onSubmit={handlerSubmitSold}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
+          placeholder="Nhập mã thuốc"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitSold}
         >
-          Sold
+          Đã bán
         </button>
       </form>
-      <hr />
     </div>
   );
 }

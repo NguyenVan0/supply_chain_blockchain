@@ -2,64 +2,64 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 contract SupplyChain {
-    //Smart Contract owner will be the person who deploys the contract only he can authorize various roles like retailer, Manufacturer,etc
+    // Chủ sở hữu hợp đồng thông minh sẽ là người triển khai hợp đồng. Chỉ người này có thể ủy quyền các vai trò khác như Nhà bán lẻ, Nhà sản xuất, v.v.
     address public Owner;
 
-    //note this constructor will be called when smart contract will be deployed on blockchain
+    // Hàm khởi tạo sẽ được gọi khi hợp đồng thông minh được triển khai trên blockchain
     constructor() public {
         Owner = msg.sender;
     }
 
-    //Roles (flow of pharma supply chain)
-    // RawMaterialSupplier; //This is where Manufacturer will get raw materials to make medicines
-    // Manufacturer;  //Various WHO guidelines should be followed by this person
-    // Distributor; //This guy distributes the medicines to retailers
-    // Retailer; //Normal customer buys from the retailer
+    // Các vai trò trong chuỗi cung ứng dược phẩm
+    // Nhà cung cấp nguyên liệu thô: Nơi mà nhà sản xuất sẽ lấy nguyên liệu thô để sản xuất thuốc
+    // Nhà sản xuất: Người sản xuất thuốc và cần tuân theo các hướng dẫn của WHO
+    // Nhà phân phối: Người phân phối thuốc đến các nhà bán lẻ
+    // Nhà bán lẻ: Khách hàng thông thường mua từ nhà bán lẻ
 
-    //modifier to make sure only the owner is using the function
+    // Modifier đảm bảo chỉ chủ sở hữu mới được sử dụng hàm
     modifier onlyByOwner() {
         require(msg.sender == Owner);
         _;
     }
 
-    //stages of a medicine in pharma supply chain
+    // Các giai đoạn của một loại thuốc trong chuỗi cung ứng dược phẩm
     enum STAGE {
-        Init,
-        RawMaterialSupply,
-        Manufacture,
-        Distribution,
-        Retail,
-        sold
+        Init, // Giai đoạn khởi tạo
+        RawMaterialSupply, // Cung cấp nguyên liệu thô
+        Manufacture, // Sản xuất
+        Distribution, // Phân phối
+        Retail, // Nhà bán lẻ
+        sold // Đã bán
     }
-    //using this we are going to track every single medicine the owner orders
+    // Dùng để theo dõi từng loại thuốc mà chủ sở hữu đặt hàng
 
-    //Medicine count
+    // Bộ đếm thuốc
     uint256 public medicineCtr = 0;
-    //Raw material supplier count
+    // Bộ đếm nhà cung cấp nguyên liệu thô
     uint256 public rmsCtr = 0;
-    //Manufacturer count
+    // Bộ đếm nhà sản xuất
     uint256 public manCtr = 0;
-    //distributor count
+    // Bộ đếm nhà phân phối
     uint256 public disCtr = 0;
-    //retailer count
+    // Bộ đếm nhà bán lẻ
     uint256 public retCtr = 0;
 
-    //To store information about the medicine
+    // Lưu thông tin về thuốc
     struct medicine {
-        uint256 id; //unique medicine id
-        string name; //name of the medicine
-        string description; //about medicine
-        uint256 RMSid; //id of the Raw Material supplier for this particular medicine
-        uint256 MANid; //id of the Manufacturer for this particular medicine
-        uint256 DISid; //id of the distributor for this particular medicine
-        uint256 RETid; //id of the retailer for this particular medicine
-        STAGE stage; //current medicine stage
+        uint256 id; // ID duy nhất của thuốc
+        string name; // Tên của thuốc
+        string description; // Mô tả về thuốc
+        uint256 RMSid; // ID của nhà cung cấp nguyên liệu thô
+        uint256 MANid; // ID của nhà sản xuất
+        uint256 DISid; // ID của nhà phân phối
+        uint256 RETid; // ID của nhà bán lẻ
+        STAGE stage; // Giai đoạn hiện tại của thuốc
     }
 
-    //To store all the medicines on the blockchain
+    // Lưu trữ tất cả các loại thuốc trên blockchain
     mapping(uint256 => medicine) public MedicineStock;
 
-    //To show status to client applications
+    // Hiển thị trạng thái của thuốc để các ứng dụng khách có thể theo dõi
     function showStage(uint256 _medicineID)
         public
         view
@@ -67,64 +67,64 @@ contract SupplyChain {
     {
         require(medicineCtr > 0);
         if (MedicineStock[_medicineID].stage == STAGE.Init)
-            return "Medicine Ordered";
+            return "Thuốc đã được đặt hàng";
         else if (MedicineStock[_medicineID].stage == STAGE.RawMaterialSupply)
-            return "Raw Material Supply Stage";
+            return "Giai đoạn cung cấp nguyên liệu thô";
         else if (MedicineStock[_medicineID].stage == STAGE.Manufacture)
-            return "Manufacturing Stage";
+            return "Giai đoạn sản xuất";
         else if (MedicineStock[_medicineID].stage == STAGE.Distribution)
-            return "Distribution Stage";
+            return "Giai đoạn phân phối";
         else if (MedicineStock[_medicineID].stage == STAGE.Retail)
-            return "Retail Stage";
+            return "Giai đoạn bán lẻ";
         else if (MedicineStock[_medicineID].stage == STAGE.sold)
-            return "Medicine Sold";
+            return "Thuốc đã được bán";
     }
 
-    //To store information about raw material supplier
+    // Lưu thông tin về nhà cung cấp nguyên liệu thô
     struct rawMaterialSupplier {
         address addr;
-        uint256 id; //supplier id
-        string name; //Name of the raw material supplier
-        string place; //Place the raw material supplier is based in
+        uint256 id; // ID nhà cung cấp
+        string name; // Tên của nhà cung cấp nguyên liệu thô
+        string place; // Địa chỉ của nhà cung cấp nguyên liệu thô
     }
 
-    //To store all the raw material suppliers on the blockchain
+    // Lưu trữ tất cả các nhà cung cấp nguyên liệu thô trên blockchain
     mapping(uint256 => rawMaterialSupplier) public RMS;
 
-    //To store information about manufacturer
+    // Lưu thông tin về nhà sản xuất
     struct manufacturer {
         address addr;
-        uint256 id; //manufacturer id
-        string name; //Name of the manufacturer
-        string place; //Place the manufacturer is based in
+        uint256 id; // ID nhà sản xuất
+        string name; // Tên của nhà sản xuất
+        string place; // Địa chỉ của nhà sản xuất
     }
 
-    //To store all the manufacturers on the blockchain
+    // Lưu trữ tất cả các nhà sản xuất trên blockchain
     mapping(uint256 => manufacturer) public MAN;
 
-    //To store information about distributor
+    // Lưu thông tin về nhà phân phối
     struct distributor {
         address addr;
-        uint256 id; //distributor id
-        string name; //Name of the distributor
-        string place; //Place the distributor is based in
+        uint256 id; // ID nhà phân phối
+        string name; // Tên của nhà phân phối
+        string place; // Địa chỉ của nhà phân phối
     }
 
-    //To store all the distributors on the blockchain
+    // Lưu trữ tất cả các nhà phân phối trên blockchain
     mapping(uint256 => distributor) public DIS;
 
-    //To store information about retailer
+    // Lưu thông tin về nhà bán lẻ
     struct retailer {
         address addr;
-        uint256 id; //retailer id
-        string name; //Name of the retailer
-        string place; //Place the retailer is based in
+        uint256 id; // ID nhà bán lẻ
+        string name; // Tên của nhà bán lẻ
+        string place; // Địa chỉ của nhà bán lẻ
     }
 
-    //To store all the retailers on the blockchain
+    // Lưu trữ tất cả các nhà bán lẻ trên blockchain
     mapping(uint256 => retailer) public RET;
 
-    //To add raw material suppliers. Only contract owner can add a new raw material supplier
+    // Thêm nhà cung cấp nguyên liệu thô. Chỉ chủ sở hữu hợp đồng mới có thể thêm
     function addRMS(
         address _address,
         string memory _name,
@@ -134,7 +134,7 @@ contract SupplyChain {
         RMS[rmsCtr] = rawMaterialSupplier(_address, rmsCtr, _name, _place);
     }
 
-    //To add manufacturer. Only contract owner can add a new manufacturer
+    // Thêm nhà sản xuất. Chỉ chủ sở hữu hợp đồng mới có thể thêm
     function addManufacturer(
         address _address,
         string memory _name,
@@ -144,7 +144,7 @@ contract SupplyChain {
         MAN[manCtr] = manufacturer(_address, manCtr, _name, _place);
     }
 
-    //To add distributor. Only contract owner can add a new distributor
+    // Thêm nhà phân phối. Chỉ chủ sở hữu hợp đồng mới có thể thêm
     function addDistributor(
         address _address,
         string memory _name,
@@ -154,7 +154,7 @@ contract SupplyChain {
         DIS[disCtr] = distributor(_address, disCtr, _name, _place);
     }
 
-    //To add retailer. Only contract owner can add a new retailer
+    // Thêm nhà bán lẻ. Chỉ chủ sở hữu hợp đồng mới có thể thêm
     function addRetailer(
         address _address,
         string memory _name,
@@ -164,7 +164,7 @@ contract SupplyChain {
         RET[retCtr] = retailer(_address, retCtr, _name, _place);
     }
 
-    //To supply raw materials from RMS supplier to the manufacturer
+    // Cung cấp nguyên liệu thô từ nhà cung cấp đến nhà sản xuất
     function RMSsupply(uint256 _medicineID) public {
         require(_medicineID > 0 && _medicineID <= medicineCtr);
         uint256 _id = findRMS(msg.sender);
@@ -174,7 +174,7 @@ contract SupplyChain {
         MedicineStock[_medicineID].stage = STAGE.RawMaterialSupply;
     }
 
-    //To check if RMS is available in the blockchain
+    // Kiểm tra xem nhà cung cấp nguyên liệu thô có tồn tại trên blockchain không
     function findRMS(address _address) private view returns (uint256) {
         require(rmsCtr > 0);
         for (uint256 i = 1; i <= rmsCtr; i++) {
@@ -183,7 +183,7 @@ contract SupplyChain {
         return 0;
     }
 
-    //To manufacture medicine
+    // Sản xuất thuốc
     function Manufacturing(uint256 _medicineID) public {
         require(_medicineID > 0 && _medicineID <= medicineCtr);
         uint256 _id = findMAN(msg.sender);
@@ -193,7 +193,7 @@ contract SupplyChain {
         MedicineStock[_medicineID].stage = STAGE.Manufacture;
     }
 
-    //To check if Manufacturer is available in the blockchain
+    // Kiểm tra xem nhà sản xuất có tồn tại trên blockchain không
     function findMAN(address _address) private view returns (uint256) {
         require(manCtr > 0);
         for (uint256 i = 1; i <= manCtr; i++) {
@@ -202,7 +202,7 @@ contract SupplyChain {
         return 0;
     }
 
-    //To supply medicines from Manufacturer to distributor
+    // Phân phối thuốc từ nhà sản xuất đến nhà phân phối
     function Distribute(uint256 _medicineID) public {
         require(_medicineID > 0 && _medicineID <= medicineCtr);
         uint256 _id = findDIS(msg.sender);
@@ -212,7 +212,7 @@ contract SupplyChain {
         MedicineStock[_medicineID].stage = STAGE.Distribution;
     }
 
-    //To check if distributor is available in the blockchain
+    // Kiểm tra xem nhà phân phối có tồn tại trên blockchain không
     function findDIS(address _address) private view returns (uint256) {
         require(disCtr > 0);
         for (uint256 i = 1; i <= disCtr; i++) {
@@ -221,7 +221,7 @@ contract SupplyChain {
         return 0;
     }
 
-    //To supply medicines from distributor to retailer
+    // Cung cấp thuốc từ nhà phân phối đến nhà bán lẻ
     function Retail(uint256 _medicineID) public {
         require(_medicineID > 0 && _medicineID <= medicineCtr);
         uint256 _id = findRET(msg.sender);
@@ -231,7 +231,7 @@ contract SupplyChain {
         MedicineStock[_medicineID].stage = STAGE.Retail;
     }
 
-    //To check if retailer is available in the blockchain
+    // Kiểm tra xem nhà bán lẻ có tồn tại trên blockchain không
     function findRET(address _address) private view returns (uint256) {
         require(retCtr > 0);
         for (uint256 i = 1; i <= retCtr; i++) {
@@ -240,17 +240,17 @@ contract SupplyChain {
         return 0;
     }
 
-    //To sell medicines from retailer to consumer
+    // Bán thuốc từ nhà bán lẻ đến người tiêu dùng
     function sold(uint256 _medicineID) public {
         require(_medicineID > 0 && _medicineID <= medicineCtr);
         uint256 _id = findRET(msg.sender);
         require(_id > 0);
-        require(_id == MedicineStock[_medicineID].RETid); //Only correct retailer can mark medicine as sold
+        require(_id == MedicineStock[_medicineID].RETid); // Chỉ nhà bán lẻ đúng mới được đánh dấu thuốc đã bán
         require(MedicineStock[_medicineID].stage == STAGE.Retail);
         MedicineStock[_medicineID].stage = STAGE.sold;
     }
 
-    // To add new medicines to the stock
+    // Thêm thuốc mới vào kho
     function addMedicine(string memory _name, string memory _description)
         public
         onlyByOwner()

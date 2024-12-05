@@ -38,7 +38,7 @@ function AssignRoles() {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
       window.alert(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+        "Đã phát hiện trình duyệt không phải Ethereum. Bạn nên cân nhắc dùng thử MetaMask!"
       );
     }
   };
@@ -84,7 +84,7 @@ function AssignRoles() {
       setRET(ret);
       setloader(false);
     } else {
-      window.alert("The smart contract is not deployed to current network");
+      window.alert("Hợp đồng thông minh không được triển khai vào mạng hiện tại");
     }
   };
   if (loader) {
@@ -143,7 +143,7 @@ function AssignRoles() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!");
     }
   };
   const handlerSubmitMAN = async (event) => {
@@ -169,7 +169,7 @@ function AssignRoles() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!");
     }
   };
   const handlerSubmitRET = async (event) => {
@@ -182,58 +182,58 @@ function AssignRoles() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã xảy ra lỗi!!!");
     }
   };
 
   return (
-    <div className="mt-[10vh]">
+    <div className="mt-[10vh]" style={{padding: '30px'}}>
       <span>
-        <b>Current Account Address:</b> {currentaccount}
+        <b>Địa Chỉ Tài Khoản Hiện Tại:</b> {currentaccount}
       </span>
       <span
         onClick={redirect_to_home}
         className="btn btn-outline-danger btn-sm"
       >
-        HOME
+        TRANG CHỦ
       </span>
-      <h4>Raw Material Suppliers:</h4>
+      <h4>Nhà Cung Cấp Nguyên Liệu:</h4>
       <form onSubmit={handlerSubmitRMS}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeAddressRMS}
-          placeholder="Ethereum Address"
+          placeholder="Địa Chỉ Ethereum"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeNameRMS}
-          placeholder="Raw Material Supplier Name"
+          placeholder="Tên Nhà Cung Cấp Nguyên Liệu"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangePlaceRMS}
-          placeholder="Based In"
+          placeholder="Nơi Cung Cấp"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitRMS}
         >
-          Register
+          Đăng Ký
         </button>
       </form>
       <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Place</th>
-            <th scope="col">Ethereum Address</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Nơi Cung Cấp</th>
+            <th scope="col">Địa Chỉ Ethereum</th>
           </tr>
         </thead>
         <tbody>
@@ -249,43 +249,43 @@ function AssignRoles() {
           })}
         </tbody>
       </table>
-      <h4>Manufacturers:</h4>
+      <h4>Nhà Sản Xuất:</h4>
       <form onSubmit={handlerSubmitMAN}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeAddressMAN}
-          placeholder="Ethereum Address"
+          placeholder="Địa Chỉ Ethereum"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeNameMAN}
-          placeholder="Manufacturer Name"
+          placeholder="Tên Nhà Sản Xuất"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangePlaceMAN}
-          placeholder="Based In"
+          placeholder="Nơi Sản Xuất"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitMAN}
         >
-          Register
+          Đăng Ký
         </button>
       </form>
       <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Place</th>
-            <th scope="col">Ethereum Address</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Nơi Sản Xuất</th>
+            <th scope="col">Địa Chỉ Ethereum</th>
           </tr>
         </thead>
         <tbody>
@@ -301,43 +301,43 @@ function AssignRoles() {
           })}
         </tbody>
       </table>
-      <h4>Distributors:</h4>
+      <h4>Nhà Phân Phối:</h4>
       <form onSubmit={handlerSubmitDIS}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeAddressDIS}
-          placeholder="Ethereum Address"
+          placeholder="Địa Chỉ Ethereum"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeNameDIS}
-          placeholder="Distributor Name"
+          placeholder="Tên Nhà Phân Phối"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangePlaceDIS}
-          placeholder="Based In"
+          placeholder="Nơi Phân Phối"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitDIS}
         >
-          Register
+          Đăng Ký
         </button>
       </form>
       <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Place</th>
-            <th scope="col">Ethereum Address</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Nơi Phân Phối</th>
+            <th scope="col">Địa Chỉ Ethereum</th>
           </tr>
         </thead>
         <tbody>
@@ -353,43 +353,43 @@ function AssignRoles() {
           })}
         </tbody>
       </table>
-      <h4>Retailers:</h4>
+      <h4>Nhà Bán Lẻ:</h4>
       <form onSubmit={handlerSubmitRET}>
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeAddressRET}
-          placeholder="Ethereum Address"
+          placeholder="Địa Chỉ Ethereum"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeNameRET}
-          placeholder="Retailer Name"
+          placeholder="Tên Nhà Bán Lẻ"
           required
         />
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangePlaceRET}
-          placeholder="Based In"
+          placeholder="Nơi Bán Lẻ"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmitRET}
         >
-          Register
+          Đăng Ký
         </button>
       </form>
       <table className="table table-sm">
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Place</th>
-            <th scope="col">Ethereum Address</th>
+            <th scope="col">Tên</th>
+            <th scope="col">Nơi Bán Lẻ</th>
+            <th scope="col">Địa Chỉ Ethereum</th>
           </tr>
         </thead>
         <tbody>
@@ -407,6 +407,7 @@ function AssignRoles() {
       </table>
     </div>
   );
+  
 }
 
 export default AssignRoles;

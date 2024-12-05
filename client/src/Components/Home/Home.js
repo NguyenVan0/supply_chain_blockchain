@@ -19,23 +19,24 @@ function Home() {
   return (
     <>
       <section className="py-10">
-        <HeroSection/>
+        <HeroSection />
         <div className="2xl:container mx-auto py-10" id="Home">
           <div className="w-[90%] mx-auto grid grid-cols-1 place-items-center pb-5">
-            <h2 className="text-5xl">ProjectX Supply Chain Flow</h2>
+            <h2 className="text-5xl">Quy trình chuỗi cung ứng ProjectX</h2>
           </div>
           <div className="w-[90%] mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col justify-center items-center">
               <div className="plan">
                 <div className="inner">
                   <span className="pricing">
-                    <span className="font-[poppins] text-gray-500">Step 1</span>
+                    <span className="font-[poppins] text-gray-500">Bước 1</span>
                   </span>
                   <p className="title pt-3 font-[poppins]">
-                    Owner should Register
+                    Chủ sở hữu cần đăng ký
                   </p>
                   <p className="info text-red-500 font-[poppins] font-bold">
-                    This is a one time step. Skip to step 2 if already done
+                    Đây là bước chỉ cần thực hiện một lần. Bỏ qua bước này nếu
+                    đã làm xong.
                   </p>
                   <ul className="features p-0">
                     <li>
@@ -51,7 +52,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Các nhà cung cấp nguyên liệu thô</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -66,7 +67,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà sản xuất</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -81,22 +82,23 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà phân phối</span>
                     </li>
                   </ul>
                   <div className="button" onClick={redirect_to_roles}>
-                    Register
+                    Đăng ký
                   </div>
                 </div>
               </div>
             </div>
+
             <div className="flex flex-col justify-center items-center">
               <div className="plan">
                 <div className="inner">
                   <span className="pricing">
-                    <span className="font-[poppins] text-gray-500">Step 2</span>
+                    <span className="font-[poppins] text-gray-500">Bước 2</span>
                   </span>
-                  <p className="title pt-3 font-[poppins]">Order medicines</p>
+                  <p className="title pt-3 font-[poppins]">Đặt mua thuốc</p>
                   <p className="info text-red-500 font-[poppins] font-bold">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   </p>
@@ -114,7 +116,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Các nhà cung cấp nguyên liệu thô</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -129,7 +131,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà sản xuất</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -144,11 +146,11 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà phân phối</span>
                     </li>
                   </ul>
                   <div className="button" onClick={redirect_to_addmed}>
-                    Order Medicines
+                    Đặt thuốc
                   </div>
                 </div>
               </div>
@@ -158,10 +160,10 @@ function Home() {
               <div className="plan">
                 <div className="inner">
                   <span className="pricing">
-                    <span className="font-[poppins] text-gray-500">Step 3</span>
+                    <span className="font-[poppins] text-gray-500">Bước 3</span>
                   </span>
                   <p className="title pt-3 font-[poppins]">
-                    Control Supply Chain
+                    Kiểm soát chuỗi cung ứng
                   </p>
                   <p className="info text-red-500 font-[poppins] font-bold">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -180,7 +182,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Các nhà cung cấp nguyên liệu thô</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -195,7 +197,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà sản xuất</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -210,11 +212,11 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà phân phối</span>
                     </li>
                   </ul>
                   <div className="button" onClick={redirect_to_supply}>
-                    Control Supply Chain
+                    Kiểm soát chuỗi cung ứng
                   </div>
                 </div>
               </div>
@@ -224,10 +226,10 @@ function Home() {
               <div className="plan">
                 <div className="inner">
                   <span className="pricing">
-                    <span className="font-[poppins] text-gray-500">Step 4</span>
+                    <span className="font-[poppins] text-gray-500">Bước 4</span>
                   </span>
                   <p className="title pt-3 font-[poppins]">
-                    Track the Medicines
+                    Theo dõi thuốc
                   </p>
                   <p className="info text-red-500 font-[poppins] font-bold">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.
@@ -246,7 +248,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Các nhà cung cấp nguyên liệu thô</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -261,7 +263,7 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà sản xuất</span>
                     </li>
                     <li>
                       <span className="icon">
@@ -276,11 +278,11 @@ function Home() {
                             d="M10 15.172l9.192-9.193 1.415 1.414L10 18l-6.364-6.364 1.414-1.414z"></path>
                         </svg>
                       </span>
-                      <span>Raw material suppliers</span>
+                      <span>Nhà phân phối</span>
                     </li>
                   </ul>
                   <div className="button" onClick={redirect_to_track}>
-                    Track Medicines
+                    Theo dõi thuốc
                   </div>
                 </div>
               </div>

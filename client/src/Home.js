@@ -18,62 +18,62 @@ function Home() {
   };
   return (
     <>
-   <Header/>
-    <div className="container">
-      <div className="header">
-        <h3>Pharmaceutical Supply Chain Flow :- </h3>
+      <Header />
+      <div className="container">
+        <div className="header">
+          <h3>Quy trình chuỗi cung ứng dược phẩm:</h3>
+        </div>
+        <br />
+        <div className="register">
+          <h6>
+            (Lưu ý: "Chủ sở hữu" là người đã triển khai hợp đồng thông minh
+            trên blockchain)
+          </h6>
+          <h5>
+            Bước 1: Chủ sở hữu cần đăng ký các nhà cung cấp nguyên liệu thô,
+            nhà sản xuất, nhà phân phối và các nhà bán lẻ
+          </h5>
+          <h6>(Lưu ý: Đây là bước một lần. Bỏ qua bước này nếu đã thực hiện)</h6>
+          <button
+            onClick={redirect_to_roles}
+            className="btn btn-outline-primary btn-sm"
+          >
+            Đăng ký
+          </button>
+        </div>
+        <br />
+        <div className="ordermedicines">
+          <h5>Bước 2: Chủ sở hữu cần đặt mua thuốc</h5>
+          <button
+            onClick={redirect_to_addmed}
+            className="btn btn-outline-primary btn-sm"
+          >
+            Đặt thuốc
+          </button>
+        </div>
+        <br />
+        <div className="controlchain">
+          <h5>Bước 3: Kiểm soát chuỗi cung ứng</h5>
+          <button
+            onClick={redirect_to_supply}
+            className="btn btn-outline-primary btn-sm"
+          >
+            Kiểm soát chuỗi cung ứng
+          </button>
+        </div>
+        <br />
+        <div className="track">
+          <h5>
+            <b>Theo dõi</b> thuốc:
+          </h5>
+          <button
+            onClick={redirect_to_track}
+            className="btn btn-outline-primary btn-sm"
+          >
+            Theo dõi thuốc
+          </button>
+        </div>
       </div>
-      <br />
-      <div className="register">
-        <h6>
-          (Note: Here <u>Owner</u> is the person who deployed the smart contract
-          on the blockchain)
-        </h6>
-        <h5>
-          Step 1: Owner Should Register Raw material suppliers ,Manufacturers,
-          Distributors and Retailers
-        </h5>
-        <h6>(Note: This is a one time step. Skip to step 2 if already done)</h6>
-        <button
-          onClick={redirect_to_roles}
-          className="btn btn-outline-primary btn-sm"
-        >
-          Register
-        </button>
-      </div>
-      <br />
-      <div className="ordermedicines">
-        <h5>Step 2: Owner should order medicines</h5>
-        <button
-          onClick={redirect_to_addmed}
-          className="btn btn-outline-primary btn-sm"
-        >
-          Order Medicines
-        </button>
-      </div>
-      <br />
-      <div className="controlchain">
-        <h5>Step 3: Control Supply Chain</h5>
-        <button
-          onClick={redirect_to_supply}
-          className="btn btn-outline-primary btn-sm"
-        >
-          Control Supply Chain
-        </button>
-      </div>
-      <br />
-      <div className="track">
-        <h5>
-          <b>Track</b> the medicines:
-        </h5>
-        <button
-          onClick={redirect_to_track}
-          className="btn btn-outline-primary btn-sm"
-        >
-          Track Medicines
-        </button>
-      </div>
-    </div>
     </>
   );
 }

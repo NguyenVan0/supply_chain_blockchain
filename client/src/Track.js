@@ -36,7 +36,7 @@ function Track() {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
       window.alert(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+        "Đã phát hiện trình duyệt không phải Ethereum. Bạn nên cân nhắc dùng thử MetaMask!"
       );
     }
   };
@@ -90,7 +90,7 @@ function Track() {
       setRET(ret);
       setloader(false);
     } else {
-      window.alert("The smart contract is not deployed to current network");
+      window.alert("Hợp đồng thông minh không được triển khai vào mạng hiện tại");
     }
   };
   if (loader) {
@@ -106,25 +106,25 @@ function Track() {
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u>Thuốc:</u>
             </b>
           </h3>
           <span>
-            <b>Medicine ID: </b>
+            <b>Mã Thuốc: </b>
             {MED[ID].id}
           </span>
           <br />
           <span>
-            <b>Name:</b> {MED[ID].name}
+            <b>Tên:</b> {MED[ID].name}
           </span>
           <br />
           <span>
-            <b>Description: </b>
+            <b>Mô Tả: </b>
             {MED[ID].description}
           </span>
           <br />
           <span>
-            <b>Current stage: </b>
+            <b>Giai Đoạn Hiện Tại: </b>
             {MedStage[ID]}
           </span>
         </article>
@@ -133,75 +133,75 @@ function Track() {
         <section className="row">
           <article className="col-3">
             <h4>
-              <u>Raw Materials Supplied by:</u>
+              <u>Nguyên Liệu Cung Cấp Bởi:</u>
             </h4>
             <p>
-              <b>Supplier ID: </b>
+              <b>Mã Nhà Cung Cấp: </b>
               {RMS[MED[ID].RMSid].id}
             </p>
             <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
+              <b>Tên:</b> {RMS[MED[ID].RMSid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Manufactured by:</u>
+              <u>Sản Xuất Bởi:</u>
             </h4>
             <p>
-              <b>Manufacturer ID: </b>
+              <b>Mã Nhà Sản Xuất: </b>
               {MAN[MED[ID].MANid].id}
             </p>
             <p>
-              <b>Name:</b> {MAN[MED[ID].MANid].name}
+              <b>Tên:</b> {MAN[MED[ID].MANid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {MAN[MED[ID].MANid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Distributed by:</u>
+              <u>Phân Phối Bởi:</u>
             </h4>
             <p>
-              <b>Distributor ID: </b>
+              <b>Mã Nhà Phân Phối: </b>
               {DIS[MED[ID].DISid].id}
             </p>
             <p>
-              <b>Name:</b> {DIS[MED[ID].DISid].name}
+              <b>Tên:</b> {DIS[MED[ID].DISid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {DIS[MED[ID].DISid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Retailed by:</u>
+              <u>Bán Lẻ Bởi:</u>
             </h4>
             <p>
-              <b>Retailer ID: </b>
+              <b>Mã Nhà Bán Lẻ: </b>
               {RET[MED[ID].RETid].id}
             </p>
             <p>
-              <b>Name:</b> {RET[MED[ID].RETid].name}
+              <b>Tên:</b> {RET[MED[ID].RETid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RET[MED[ID].RETid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Sold</u>
+              <u>Đã Bán</u>
             </h4>
           </article>
         </section>
@@ -211,36 +211,37 @@ function Track() {
           }}
           className="btn btn-outline-success btn-sm"
         >
-          Track Another Item
+          Theo Dõi Mặt Hàng Khác
         </button>
       </div>
     );
   }
+  
   if (TrackTillRetail) {
     return (
       <div className="container-xl">
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u>Thuốc:</u>
             </b>
           </h3>
           <span>
-            <b>Medicine ID: </b>
+            <b>Mã Thuốc: </b>
             {MED[ID].id}
           </span>
           <br />
           <span>
-            <b>Name:</b> {MED[ID].name}
+            <b>Tên:</b> {MED[ID].name}
           </span>
           <br />
           <span>
-            <b>Description: </b>
+            <b>Mô Tả: </b>
             {MED[ID].description}
           </span>
           <br />
           <span>
-            <b>Current stage: </b>
+            <b>Giai Đoạn Hiện Tại: </b>
             {MedStage[ID]}
           </span>
         </article>
@@ -249,68 +250,68 @@ function Track() {
         <section className="row">
           <article className="col-3">
             <h4>
-              <u>Raw Materials Supplied by:</u>
+              <u>Nguyên Liệu Cung Cấp Bởi:</u>
             </h4>
             <p>
-              <b>Supplier ID: </b>
+              <b>Mã Nhà Cung Cấp: </b>
               {RMS[MED[ID].RMSid].id}
             </p>
             <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
+              <b>Tên:</b> {RMS[MED[ID].RMSid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Manufactured by:</u>
+              <u>Sản Xuất Bởi:</u>
             </h4>
             <p>
-              <b>Manufacturer ID: </b>
+              <b>Mã Nhà Sản Xuất: </b>
               {MAN[MED[ID].MANid].id}
             </p>
             <p>
-              <b>Name:</b> {MAN[MED[ID].MANid].name}
+              <b>Tên:</b> {MAN[MED[ID].MANid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {MAN[MED[ID].MANid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Distributed by:</u>
+              <u>Phân Phối Bởi:</u>
             </h4>
             <p>
-              <b>Distributor ID: </b>
+              <b>Mã Nhà Phân Phối: </b>
               {DIS[MED[ID].DISid].id}
             </p>
             <p>
-              <b>Name:</b> {DIS[MED[ID].DISid].name}
+              <b>Tên:</b> {DIS[MED[ID].DISid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {DIS[MED[ID].DISid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Retailed by:</u>
+              <u>Bán Lẻ Bởi:</u>
             </h4>
             <p>
-              <b>Retailer ID: </b>
+              <b>Mã Nhà Bán Lẻ: </b>
               {RET[MED[ID].RETid].id}
             </p>
             <p>
-              <b>Name:</b> {RET[MED[ID].RETid].name}
+              <b>Tên:</b> {RET[MED[ID].RETid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RET[MED[ID].RETid].place}
             </p>
           </article>
@@ -321,7 +322,7 @@ function Track() {
           }}
           className="btn btn-outline-success btn-sm"
         >
-          Track Another Item
+          Theo Dõi Mặt Hàng Khác
         </button>
         <span
           onClick={() => {
@@ -329,8 +330,7 @@ function Track() {
           }}
           className="btn btn-outline-danger btn-sm"
         >
-          {" "}
-          HOME
+          TRANG CHỦ
         </span>
       </div>
     );
@@ -341,25 +341,25 @@ function Track() {
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u>Thuốc:</u>
             </b>
           </h3>
           <span>
-            <b>Medicine ID: </b>
+            <b>Mã Thuốc: </b>
             {MED[ID].id}
           </span>
           <br />
           <span>
-            <b>Name:</b> {MED[ID].name}
+            <b>Tên:</b> {MED[ID].name}
           </span>
           <br />
           <span>
-            <b>Description: </b>
+            <b>Mô Tả: </b>
             {MED[ID].description}
           </span>
           <br />
           <span>
-            <b>Current stage: </b>
+            <b>Giai Đoạn Hiện Tại: </b>
             {MedStage[ID]}
           </span>
         </article>
@@ -368,51 +368,51 @@ function Track() {
         <section className="row">
           <article className="col-3">
             <h4>
-              <u>Raw Materials Supplied by:</u>
+              <u>Nguyên Liệu Cung Cấp Bởi:</u>
             </h4>
             <p>
-              <b>Supplier ID: </b>
+              <b>Mã Nhà Cung Cấp: </b>
               {RMS[MED[ID].RMSid].id}
             </p>
             <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
+              <b>Tên:</b> {RMS[MED[ID].RMSid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Manufactured by:</u>
+              <u>Sản Xuất Bởi:</u>
             </h4>
             <p>
-              <b>Manufacturer ID: </b>
+              <b>Mã Nhà Sản Xuất: </b>
               {MAN[MED[ID].MANid].id}
             </p>
             <p>
-              <b>Name:</b> {MAN[MED[ID].MANid].name}
+              <b>Tên:</b> {MAN[MED[ID].MANid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {MAN[MED[ID].MANid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Distributed by:</u>
+              <u>Phân Phối Bởi:</u>
             </h4>
             <p>
-              <b>Distributor ID: </b>
+              <b>Mã Nhà Phân Phối: </b>
               {DIS[MED[ID].DISid].id}
             </p>
             <p>
-              <b>Name:</b> {DIS[MED[ID].DISid].name}
+              <b>Tên:</b> {DIS[MED[ID].DISid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {DIS[MED[ID].DISid].place}
             </p>
           </article>
@@ -423,7 +423,7 @@ function Track() {
           }}
           className="btn btn-outline-success btn-sm"
         >
-          Track Another Item
+          Theo Dõi Mặt Hàng Khác
         </button>
         <span
           onClick={() => {
@@ -431,8 +431,7 @@ function Track() {
           }}
           className="btn btn-outline-danger btn-sm"
         >
-          {" "}
-          HOME
+          TRANG CHỦ
         </span>
       </div>
     );
@@ -443,25 +442,25 @@ function Track() {
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u>Thuốc:</u>
             </b>
           </h3>
           <span>
-            <b>Medicine ID: </b>
+            <b>Mã Thuốc: </b>
             {MED[ID].id}
           </span>
           <br />
           <span>
-            <b>Name:</b> {MED[ID].name}
+            <b>Tên:</b> {MED[ID].name}
           </span>
           <br />
           <span>
-            <b>Description: </b>
+            <b>Mô Tả: </b>
             {MED[ID].description}
           </span>
           <br />
           <span>
-            <b>Current stage: </b>
+            <b>Giai Đoạn Hiện Tại: </b>
             {MedStage[ID]}
           </span>
         </article>
@@ -470,34 +469,34 @@ function Track() {
         <section className="row">
           <article className="col-3">
             <h4>
-              <u>Raw Materials Supplied by:</u>
+              <u>Nguyên Liệu Cung Cấp Bởi:</u>
             </h4>
             <p>
-              <b>Supplier ID: </b>
+              <b>Mã Nhà Cung Cấp: </b>
               {RMS[MED[ID].RMSid].id}
             </p>
             <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
+              <b>Tên:</b> {RMS[MED[ID].RMSid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
           <span>&#10132;</span>
           <article className="col-3">
             <h4>
-              <u>Manufactured by:</u>
+              <u>Sản Xuất Bởi:</u>
             </h4>
             <p>
-              <b>Manufacturer ID: </b>
+              <b>Mã Nhà Sản Xuất: </b>
               {MAN[MED[ID].MANid].id}
             </p>
             <p>
-              <b>Name:</b> {MAN[MED[ID].MANid].name}
+              <b>Tên:</b> {MAN[MED[ID].MANid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {MAN[MED[ID].MANid].place}
             </p>
           </article>
@@ -508,37 +507,44 @@ function Track() {
           }}
           className="btn btn-outline-success btn-sm"
         >
-          Track Another Item
+          Theo Dõi Mặt Hàng Khác
         </button>
-
+        <span
+          onClick={() => {
+            navigate("/");
+          }}
+          className="btn btn-outline-danger btn-sm"
+        >
+          TRANG CHỦ
+        </span>
       </div>
     );
-  }
+  }  
   if (TrackTillRMS) {
     return (
       <div className="container-xl">
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u>Thuốc:</u>
             </b>
           </h3>
           <span>
-            <b>Medicine ID: </b>
+            <b>Mã Thuốc: </b>
             {MED[ID].id}
           </span>
           <br />
           <span>
-            <b>Name:</b> {MED[ID].name}
+            <b>Tên:</b> {MED[ID].name}
           </span>
           <br />
           <span>
-            <b>Description: </b>
+            <b>Mô Tả: </b>
             {MED[ID].description}
           </span>
           <br />
           <span>
-            <b>Current stage: </b>
+            <b>Giai Đoạn Hiện Tại: </b>
             {MedStage[ID]}
           </span>
         </article>
@@ -547,17 +553,17 @@ function Track() {
         <section className="row">
           <article className="col-3">
             <h4>
-              <u>Raw Materials Supplied by:</u>
+              <u>Nguyên Liệu Được Cung Cấp Bởi:</u>
             </h4>
             <p>
-              <b>Supplier ID: </b>
+              <b>Mã Nhà Cung Cấp: </b>
               {RMS[MED[ID].RMSid].id}
             </p>
             <p>
-              <b>Name:</b> {RMS[MED[ID].RMSid].name}
+              <b>Tên:</b> {RMS[MED[ID].RMSid].name}
             </p>
             <p>
-              <b>Place: </b>
+              <b>Địa Điểm: </b>
               {RMS[MED[ID].RMSid].place}
             </p>
           </article>
@@ -568,7 +574,7 @@ function Track() {
           }}
           className="btn btn-outline-success btn-sm"
         >
-          Track Another Item
+          Theo Dõi Mặt Hàng Khác
         </button>
         <span
           onClick={() => {
@@ -576,11 +582,11 @@ function Track() {
           }}
           className="btn btn-outline-danger btn-sm"
         >
-          {" "}
-          HOME
+          TRANG CHỦ
         </span>
       </div>
     );
+    
   }
   if (TrackTillOrdered) {
     return (
@@ -588,51 +594,51 @@ function Track() {
         <article className="col-4">
           <h3>
             <b>
-              <u>Medicine:</u>
+              <u>Thuốc:</u>
             </b>
           </h3>
           <span>
-            <b>Medicine ID: </b>
+            <b>Mã Thuốc: </b>
             {MED[ID].id}
           </span>
           <br />
           <span>
-            <b>Name:</b> {MED[ID].name}
+            <b>Tên:</b> {MED[ID].name}
           </span>
           <br />
           <span>
-            <b>Description: </b>
+            <b>Mô Tả: </b>
             {MED[ID].description}
           </span>
           <br />
           <span>
-            <b>Current stage: </b>
+            <b>Giai Đoạn Hiện Tại: </b>
             {MedStage[ID]}
           </span>
           <hr />
           <br />
-          <h5>Medicine Not Yet Processed...</h5>
+          <h5>Thuốc Chưa Được Xử Lý...</h5>
           <button
             onClick={() => {
               showTrackTillOrdered(false);
             }}
             className="btn btn-outline-success btn-sm"
           >
-            Track Another Item
+            Theo Dõi Mặt Hàng Khác
           </button>
-
         </article>
         {/* <section className="row">
-                    
-                    <article className="col-3">
-                        <h4><u>Raw Materials Supplied by:</u></h4>
-                        <p><b>Supplier ID: </b>{RMS[MED[ID].RMSid].id}</p>
-                        <p><b>Name:</b> {RMS[MED[ID].RMSid].name}</p>
-                        <p><b>Place: </b>{RMS[MED[ID].RMSid].place}</p>
-                    </article>
-                </section> */}
+                        
+                        <article className="col-3">
+                            <h4><u>Nguyên Liệu Được Cung Cấp Bởi:</u></h4>
+                            <p><b>Mã Nhà Cung Cấp: </b>{RMS[MED[ID].RMSid].id}</p>
+                            <p><b>Tên:</b> {RMS[MED[ID].RMSid].name}</p>
+                            <p><b>Địa Điểm: </b>{RMS[MED[ID].RMSid].place}</p>
+                        </article>
+                    </section> */}
       </div>
     );
+    
   }
   const handlerChangeID = (event) => {
     setID(event.target.value);
@@ -660,42 +666,41 @@ function Track() {
   };
 
   return (
-    <div className="mt-[11vh]">
-      <span>
-        <b>Current Account Address:</b> {currentaccount}
-      </span>
-      <span
-        onClick={redirect_to_home}
-        className="btn btn-outline-danger btn-sm"
-      >
-        {" "}
-        HOME
-      </span>
+    <div className="mt-[11vh]" style={{padding: '10px'}}>
+  <span>
+    <b>Địa Chỉ Tài Khoản Hiện Tại:</b> {currentaccount}
+  </span>
+  <span
+    onClick={redirect_to_home}
+    className="btn btn-outline-danger btn-sm"
+  >
+    TRANG CHỦ
+  </span>
 
-      <h5 className="pt-5">Enter Medicine ID to Track it</h5>
-
+  <h5 className="pt-5">Nhập Mã Thuốc Để Theo Dõi</h5>
       <form onSubmit={handlerSubmit} className="py-10">
         <input
           className="form-control-sm"
           type="text"
           onChange={handlerChangeID}
-          placeholder="Enter Medicine ID"
+          placeholder="Nhập ID thuốc"
           required
         />
         <button
           className="btn btn-outline-success btn-sm"
           onSubmit={handlerSubmit}
         >
-          Track
+          Theo dõi
         </button>
       </form>
       <table className="table table-sm table-bordered">
         <thead>
           <tr>
-            <th scope="col">Medicine ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Description</th>
-            <th scope="col">Current Processing Stage</th>
+          <th scope="col">Mã Thuốc</th>
+<th scope="col">Tên Thuốc</th>
+<th scope="col">Mô Tả</th>
+<th scope="col">Giai Đoạn Xử Lý Hiện Tại</th>
+
           </tr>
         </thead>
         <tbody>

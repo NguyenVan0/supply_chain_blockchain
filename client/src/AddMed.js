@@ -27,7 +27,7 @@ function AddMed() {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
       window.alert(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
+        "Trình duyệt không hỗ trợ Ethereum. Bạn nên thử sử dụng MetaMask!"
       );
     }
   };
@@ -58,13 +58,13 @@ function AddMed() {
       setMedStage(medStage);
       setloader(false);
     } else {
-      window.alert("The smart contract is not deployed to current network");
+      window.alert("Hợp đồng thông minh chưa được triển khai trên mạng hiện tại");
     }
   };
   if (loader) {
     return (
       <div>
-        <h1 className="wait">Loading...</h1>
+        <h1 className="wait">Đang tải...</h1>
       </div>
     );
   }
@@ -87,15 +87,15 @@ function AddMed() {
         loadBlockchaindata();
       }
     } catch (err) {
-      alert("An error occured!!!");
+      alert("Đã có lỗi xảy ra!!!");
     }
   };
   return (
-    <div className="py-10 mt-[11vh]">
+    <div className="py-10 mt-[11vh]" style={{padding: '20px'}}>
       <div className="container mx-auto">
         <div className="w-[90%] mx-auto">
           <span >
-            <b>Current Account Address:</b> {currentaccount}
+            <b>Địa chỉ tài khoản hiện tại:</b> {currentaccount}
           </span>
         </div>
       </div>
@@ -105,7 +105,7 @@ function AddMed() {
       <div className="2xl:container mx-auto py-10 space-y-4">
 
         <div className="w-[90%] mx-auto grid grid-cols-1">
-          <h5>Add Medicine Order:</h5>
+          <h5>Thêm Đơn Hàng Thuốc:</h5>
         </div>
         <div className="mx-auto w-[90%] grid grid-cols-1 md:grid-cols-2">
           <form onSubmit={handlerSubmitMED}>
@@ -114,34 +114,34 @@ function AddMed() {
                 className="form-control-sm border border-red-500"
                 type="text"
                 onChange={handlerChangeNameMED}
-                placeholder="Medicine Name"
+                placeholder="Tên Thuốc"
                 required
               />
               <input
                 className="form-control-sm border border-red-500"
                 type="text"
                 onChange={handlerChangeDesMED}
-                placeholder="Medicine Description"
+                placeholder="Mô Tả Thuốc"
                 required
               />
               <button
                 className="btn btn-outline-success btn-sm"
                 onSubmit={handlerSubmitMED}
               >
-                Order
+                Đặt Hàng
               </button>
             </div>
 
           </form>
           <div>
-            <h5>Ordered Medicines:</h5>
+            <h5>Thuốc Đã Đặt:</h5>
             <table className="table table-bordered">
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Current Stage</th>
+                  <th scope="col">Tên</th>
+                  <th scope="col">Mô Tả</th>
+                  <th scope="col">Giai Đoạn Hiện Tại</th>
                 </tr>
               </thead>
               <tbody>

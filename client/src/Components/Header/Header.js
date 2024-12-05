@@ -50,13 +50,13 @@ let Header = () => {
 
   return (
     <>
-      <header className={colorChange ? "stickyy active" : "stickyy"}>
+      <header style={{margin: '0 0 10px 0'}} className={colorChange ? "stickyy active" : "stickyy"}>
         <div className="Nav-bar">
           <div className="flex justify-center items-center ml-2 mt-3 md:ml-6">
             <Link to="/">
               <div className="flex gap-3 items-center">
                 <div className="w-40 text-white text-[18px] md:text-[26px] font-bold tracking-wide logo-text ">
-                  Project X
+                  Dự án
                 </div>
               </div>
             </Link>
@@ -71,27 +71,27 @@ let Header = () => {
             >
               <li className="Nav-li" id="1">
                 <Link to="/" className="Nav-a" onClick={() => autoClose()}>
-                  Home
+                  Trang chủ
                 </Link>
               </li>
               <li className="Nav-li" id="1">
                 <Link to="/roles" className="Nav-a" onClick={() => autoClose()}>
-                  Roles
+                  Quyền
                 </Link>
               </li>
               <li className="Nav-li" id="1">
                 <Link to="/addmed" className="Nav-a" onClick={() => autoClose()}>
-                  Addmed
+                  Đặt hàng
                 </Link>
               </li>
               <li className="Nav-li" id="1">
                 <Link to="/supply" className="Nav-a" onClick={() => autoClose()}>
-                  Supply
+                  Cung cấp
                 </Link>
               </li>
               <li className="Nav-li" id="2">
                 <Link to="/track" className="Nav-a" onClick={() => autoClose()}>
-                  Track
+                  Theo dõi
                 </Link>
               </li>
             </ul>
